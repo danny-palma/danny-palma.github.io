@@ -1,62 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rainbow</title>
-    <style> 
-        *{
-            width: 100%;
-            height: 100%;
-            padding: 0px;
-            margin: 0px;
-        }
-    </style>
-</head>
-<body style="color:white !important;">
-    <p style="color:black;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;" id="p">0</p>
-<script>
-    let red = {number: 145, status: 0};
-    let blue = {number: 70, status: 0};
-    let green = {number: 200, status: 0};
-    //status 0 = sumando
-    //status 1 = restando
-    setInterval(()=>{
-        if(red.status == 0){
-            red.number += Math.round(Math.random() * 5);
-            if(red.number > 255){
-                red.status = 1;
-            }
-        } else {
-            red.number -= Math.round(Math.random() * 5);
-            if(red.number < 0){
-                red.status = 0;
-            }
-        }
-        if(blue.status == 0){
-            blue.number += Math.round(Math.random() * 5);
-            if(blue.number > 255){
-                blue.status = 1;
-            }
-        } else {
-            blue.number -= Math.round(Math.random() * 5);
-            if(blue.number < 0){
-                blue.status = 0;
-            }
-        }
-        if(green.status == 0){
-            green.number += Math.round(Math.random() * 5);
-            if(green.number > 255){
-                green.status = 1;
-            }
-        } else {
-            green.number -= Math.round(Math.random() * 5);
-            if(green.number < 0){
-                green.status = 0;
-            }
-        }
-        document.getElementById("p").style.backgroundColor = `rgb(${red.number}, ${green.number}, ${blue.number})`
-    },1)
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shaq | Portfolio</title>
+  </head>
+  <body class="bg-night">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
