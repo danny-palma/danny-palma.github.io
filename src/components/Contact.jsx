@@ -144,6 +144,9 @@ const Contact = () => {
             />
           </button>
         </form>
+        <div className='relative top-4 right-0'>
+          Created using <a className='hover:text-sky-800 text-sky-400 transition-all' href='https://github.com/shaqdeff/Portfolio-Template'>This</a> template 
+        </div>
       </motion.div>
     </div>
   );
