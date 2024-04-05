@@ -44,8 +44,14 @@ import math from './projects/math-magicians.png';
 import movie from './projects/movie-metro.png';
 import nyeusi from './projects/nyeusi.png';
 import space from './projects/space-hub.png';
+import menherachan from './projects/menhera-chan.png';
+import booksearch from './projects/books-search.png';
+import localendpoint from './projects/local-endpoint-manager.png';
 
 export {
+  localendpoint,
+  booksearch,
+  menherachan,
   bwmap,
   nairobi,
   whiteabstract,

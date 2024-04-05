@@ -12,10 +12,10 @@ import {
   git,
   docker,
   cs,
-  komikult,
-  leaderboard,
-  math,
   coverhunt,
+  localendpoint,
+  booksearch,
+  menherachan,
 } from '../assets';
 
 export const navLinks = [
@@ -138,7 +138,7 @@ const projects = [
         color: 'pink-text-gradient',
       },
     ],
-    image: komikult,
+    image: booksearch,
     repo: 'https://github.com/danny-palma/Pruebas-de-software',
     demo: 'https://pruebas-de-software.onrender.com/',
   },
@@ -153,7 +153,7 @@ const projects = [
         color: 'blue-text-gradient',
       },
     ],
-    image: leaderboard,
+    image: localendpoint,
     repo: 'https://github.com/danny-palma/LocalEndpointManager',
     demo: 'https://github.com/danny-palma/LocalEndpointManager',
   },
@@ -167,7 +167,7 @@ const projects = [
         color: 'blue-text-gradient',
       },
     ],
-    image: math,
+    image: menherachan,
     repo: 'https://github.com/danny-palma/bot-menhera-chan',
     demo: 'https://github.com/danny-palma/bot-menhera-chan',
   }
