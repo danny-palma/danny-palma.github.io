@@ -8,25 +8,14 @@ import {
   html,
   css,
   reactjs,
-  redux,
-  tailwind,
   nodejs,
   git,
-  figma,
   docker,
-  postgresql,
-  rubyrails,
-  graphql,
+  cs,
   komikult,
   leaderboard,
   math,
-  movie,
-  nyeusi,
-  space,
   coverhunt,
-  dcc,
-  kelhel,
-  microverse,
 } from '../assets';
 
 export const navLinks = [
@@ -85,36 +74,16 @@ const technologies = [
     icon: reactjs,
   },
   {
-    name: 'Redux Toolkit',
-    icon: redux,
-  },
-  {
-    name: 'Tailwind CSS',
-    icon: tailwind,
-  },
-  {
     name: 'Node JS',
     icon: nodejs,
-  },
-  {
-    name: 'Rails',
-    icon: rubyrails,
-  },
-  {
-    name: 'graphql',
-    icon: graphql,
-  },
-  {
-    name: 'postgresql',
-    icon: postgresql,
   },
   {
     name: 'git',
     icon: git,
   },
   {
-    name: 'figma',
-    icon: figma,
+    name: 'C#',
+    icon: cs,
   },
   {
     name: 'docker',
@@ -124,43 +93,40 @@ const technologies = [
 
 const experiences = [
   {
-    title: 'Front-End Developer',
-    company_name: 'Cover Hunt',
+    title: 'Technical Systems Specialist',
+    company_name: 'Viva IPS',
     icon: coverhunt,
     iconBg: '#333333',
-    date: 'Aug 2021 - Feb 2022',
+    date: 'Aug 2021 - Present',
   },
   {
-    title: 'Mentor (Volunteer)',
-    company_name: 'Microverse',
-    icon: microverse,
+    title: 'C# Fundamentals with Microsoft and Free Code Camp Course',
+    company_name: 'Microsoft and Free Code camp',
+    icon: coverhunt,
     iconBg: '#333333',
-    date: 'Mar 2022 - May 2022',
+    date: 'Jan 2024',
   },
   {
-    title: 'Junior Software Engineer',
-    company_name: 'Kelhel',
-    icon: kelhel,
+    title: 'Professional Git and GitHub course',
+    company_name: 'Platzi',
+    icon: coverhunt,
     iconBg: '#333333',
-    date: 'May 2022 - Oct 2022',
-  },
-  {
-    title: 'Full Stack Developer',
-    company_name: 'Diversity Cyber Council',
-    icon: dcc,
-    iconBg: '#333333',
-    date: 'Sep 2022 - Present',
+    date: 'May 2022',
   },
 ];
 
 const projects = [
   {
     id: 'project-1',
-    name: 'KomiKult',
-    description: 'A comic characters list app that displays Marvel characters.',
+    name: 'Book Search',
+    description: 'An API to search books on database in mongoDB',
     tags: [
       {
-        name: 'react',
+        name: 'HTML',
+        color: 'blue-text-gradient',
+      },
+      {
+        name: 'CSS',
         color: 'blue-text-gradient',
       },
       {
@@ -168,104 +134,43 @@ const projects = [
         color: 'green-text-gradient',
       },
       {
-        name: 'tailwind',
+        name: 'TypeScript',
         color: 'pink-text-gradient',
       },
     ],
     image: komikult,
-    repo: 'https://github.com/shaqdeff/KomiKult',
-    demo: 'https://shaqdeff.github.io/KomiKult/',
+    repo: 'https://github.com/danny-palma/Pruebas-de-software',
+    demo: 'https://pruebas-de-software.onrender.com/',
   },
   {
     id: 'project-2',
-    name: 'Leaderboard',
+    name: 'Local Endpoint manager',
     description:
-      'A leaderboard list app that displays scores submitted by different players.',
+      'Project for the mass administration of computers on a local network natively in Windows with .NET Framework 4.7.6.',
     tags: [
       {
-        name: 'react',
+        name: 'C#',
         color: 'blue-text-gradient',
-      },
-      {
-        name: 'restapi',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'scss',
-        color: 'pink-text-gradient',
       },
     ],
     image: leaderboard,
-    repo: 'https://github.com/shaqdeff/Leaderboard',
-    demo: 'https://shaqdeff.github.io/Leaderboard/',
+    repo: 'https://github.com/danny-palma/LocalEndpointManager',
+    demo: 'https://github.com/danny-palma/LocalEndpointManager',
   },
   {
     id: 'project-3',
-    name: 'Math Magicians',
-    description: 'This is a single-page calculator app built with React',
+    name: 'Bot Menhera Chan',
+    description: 'Personal project which consists of a bot made for Discord with its own dashboard.',
     tags: [
       {
-        name: 'nextjs',
+        name: 'Typescript',
         color: 'blue-text-gradient',
-      },
-      {
-        name: 'supabase',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'css',
-        color: 'pink-text-gradient',
       },
     ],
     image: math,
-    repo: 'https://github.com/shaqdeff/Math-Magicians',
-    demo: 'https://inspiring-medovik-37d3b3.netlify.app/',
-  },
-  {
-    id: 'project-4',
-    name: 'Movie Metro',
-    description: `A single-page application that allows users to search for any movie or show's ratings and its details.`,
-    tags: [
-      {
-        name: 'nextjs',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'supabase',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'css',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: movie,
-    repo: 'https://github.com/shaqdeff/Movie-Metro',
-    demo: 'https://movie-metro.netlify.app/',
-  },
-  {
-    id: 'project-5',
-    name: 'Nyeusi Fest Site',
-    description:
-      'This is a demo concert website for a music festival called Nyeusi.',
-    tags: [
-      {
-        name: 'nextjs',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'supabase',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'css',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: nyeusi,
-    repo: 'https://github.com/shaqdeff/Nyeusi-Fest-Site',
-    demo: 'https://shaqdeff.github.io/Nyeusi-Fest-Site/',
-  },
+    repo: 'https://github.com/danny-palma/bot-menhera-chan',
+    demo: 'https://github.com/danny-palma/bot-menhera-chan',
+  }
 ];
 
 export { services, technologies, experiences, projects };
