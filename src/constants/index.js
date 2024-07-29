@@ -93,6 +93,13 @@ const technologies = [
 
 const experiences = [
   {
+    title: 'Freelancer Web Developer',
+    company_name: 'Freelance',
+    icon: coverhunt,
+    iconBg: '#333333',
+    date: '2019 - Present',
+  },
+  {
     title: 'Technical Systems Specialist',
     company_name: 'Viva IPS',
     icon: coverhunt,

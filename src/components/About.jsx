@@ -1,32 +1,9 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { services } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 import { SectionWrapper } from "../hoc";
-
-const ServiceCard = ({ index, title, icon }) => {
-  return (
-    <motion.div
-      variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
-      className="xs:w-[250px] w-full card-gradient p-[1px] rounded-[20px] shadow-card"
-    >
-      <div
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className="bg-jetLight rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
-      >
-        <img src={icon} alt={title} className="w-16 h-16 object-contain" />
-        <h3 className="text-taupe text-[18px] font-bold text-center">
-          {title}
-        </h3>
-      </div>
-    </motion.div>
-  );
-};
+import { ServiceCard } from "./ServiceCard";
 
 const About = () => {
   return (
@@ -40,17 +17,69 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]"
       >
-        I&apos;m Daniel Palma, a systems engineering student with a passion for
-        backend development and system support. Throughout my academic journey,
-        I&apos;ve honed my skills in these areas, alongside fostering analytical
-        abilities and a strong teamwork ethic. My experience extends beyond the
-        classroom, as I dedicated a year to military service, where I further
-        developed my analytical prowess and collaboration <br></br> Now, I&apos;m
-        seeking to leverage my expertise by joining an organization where I can
-        contribute to achieving business objectives while advancing my
-        professional career. For more information about my educational
-        background and projects, feel free to explore my profiles on LinkedIn
-        and GitHub. veniam dolorum ipsum doloribus.
+        Dedicated and versatile Full-Stack Multiplatform Software Developer with
+        robust skills in systems development and support, honed through both
+        academic and professional experiences. My passion for technology drives
+        me to continuously learn and apply new skills, allowing me to develop
+        innovative and efficient software solutions. I thrive in collaborative
+        environments and excel in problem-solving and analytical thinking.
+        <br />
+        I have solid knowledge in a variety of programming languages, including:
+        <br />
+        <ul>
+          <li>
+            - Java: Used to develop robust and secure applications, especially
+            in enterprise environments.
+          </li>
+          <li>
+            - JavaScript/TypeScript: Essential for web development, both in
+            frontend with frameworks like React, and in backend with Node.js.
+          </li>
+          <li>
+            - C#: Ideal for desktop applications and web services, with
+            certified experience by Microsoft.
+          </li>
+          <li>
+            - C++: Used in the development of high-performance software and
+            operating systems.
+          </li>
+          <li>
+            - HTML/CSS: Essential for creating attractive and responsive user
+            interfaces.
+          </li>
+          <li>
+            - SQL (MySQL, PostgreSQL): Management of relational databases,
+            ensuring integrity and efficiency in data storage.
+          </li>
+          <li>
+            - NoSQL (MongoDB): Flexibility to handle unstructured data and
+            scalability in modern applications.
+          </li>
+        </ul>
+        <br />
+        Additionally, I have experience in various technologies and frameworks:
+        <br />
+        <ul>
+          <li>
+            - Node.js: Development of efficient and scalable backend
+            applications.
+          </li>
+          <li>- React: Creation of dynamic and modern user interfaces.</li>
+          <li>
+            - ASP.NET: Development of robust web applications with the .NET
+            framework.
+          </li>
+          <li>- Flutter: Development of cross-platform mobile applications.</li>
+          <li>
+            - Scrum: Agile methodology for project management and software
+            development.
+          </li>
+        </ul>
+        <br />
+        My commitment to continuous learning and my ability to quickly adapt to
+        new technologies enable me to face and overcome software development
+        challenges. Connect with me to explore how we can collaborate and create
+        impactful software solutions together.
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-10">
