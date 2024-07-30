@@ -8,6 +8,7 @@ import {
   Tech,
   Projects,
 } from './components';
+import React from 'react';
 
 const App = () => {
   return (
