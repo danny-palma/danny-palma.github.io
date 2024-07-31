@@ -33,9 +33,9 @@ export const Contact = () => {
         "template_97w3ixr", // paste your TemplateID here (you'll find it under email templates).
         {
           from_name: form.name,
-          to_name: "YourName", // put your name here.
+          to_name: "Daniel Palma", // put your name here.
           from_email: form.email,
-          to_email: "youremail@gmail.com", //put your email here.
+          to_email: "dannypalmadev@gmail.com", //put your email here.
           message: form.message,
         },
         "Tb6HjCSh_6ES_LNk-" //paste your Public Key here. You'll get it in your profile section.
