@@ -3,9 +3,16 @@ import { motion } from "framer-motion";
 import { SectionWrapper } from "../hoc";
 import { styles } from "../styles";
 import { github, pineapple, pineappleHover } from "../assets";
-import { projects } from "../constants";
-import { fadeIn, textVariant, staggerContainer } from "../utils/motion";
+import { IProject, projects } from "../constants";
+import { fadeIn, textVariant } from "../utils/motion";
 import { ga4 } from "../main";
+
+type PorjectCardProps = IProject & {
+  key: string;
+  index: number;
+  active: string;
+  handleClick: React.Dispatch<string>;
+};
 
 const ProjectCard = ({
   id,
@@ -17,7 +24,7 @@ const ProjectCard = ({
   index,
   active,
   handleClick,
-}) => {
+}: PorjectCardProps) => {
   return (
     <motion.div
       variants={fadeIn("right", "spring", index * 0.5, 0.75)}
@@ -94,24 +101,26 @@ const ProjectCard = ({
               ease-in-out"
               onClick={() => {
                 ga4.event({
-                  action: "click",
-                  category: "Project click" + name,
+                  action: "Project click",
+                  category: "Projects",
+                  label: name,
                 });
                 window.open(demo, "_blank");
               }}
               onMouseOver={() => {
                 ga4.event({
-                  action: "hover",
-                  category: "Project interest" + name,
+                  action: "Project interest",
+                  category: "Projects",
+                  label: name,
                 });
                 document
                   .querySelector(".btn-icon")
-                  .setAttribute("src", pineappleHover);
+                  ?.setAttribute("src", pineappleHover);
               }}
               onMouseOut={() => {
                 document
                   .querySelector(".btn-icon")
-                  .setAttribute("src", pineapple);
+                  ?.setAttribute("src", pineapple);
               }}
             >
               <img
@@ -134,7 +143,7 @@ const Projects = () => {
 
   return (
     <div className="-mt-[6rem]">
-      <motion.div variants={textVariant()}>
+      <motion.div variants={textVariant(0)}>
         <p className={`${styles.sectionSubText} `}>Case Studies</p>
         <h2 className={`${styles.sectionHeadTextLight}`}>Projects.</h2>
       </motion.div>
@@ -153,7 +162,6 @@ const Projects = () => {
       </div>
 
       <motion.div
-        variants={staggerContainer}
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0.25 }}

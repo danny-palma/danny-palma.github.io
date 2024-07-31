@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { BallCanvas } from './canvas';
 import { SectionWrapper } from '../hoc';
@@ -8,7 +9,7 @@ import { textVariant } from '../utils/motion';
 const Tech = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
+      <motion.div variants={textVariant(0)}>
         <p className={styles.sectionSubTextLight}>My skills</p>
         <h2 className={styles.sectionHeadTextLight}>Technologies.</h2>
       </motion.div>

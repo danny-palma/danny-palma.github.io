@@ -1,3 +1,4 @@
+import React from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -5,13 +6,13 @@ import {
 import { motion } from "framer-motion";
 import "react-vertical-timeline-component/style.min.css";
 import { styles } from "../styles";
-import { experiences } from "../constants";
+import { IExperience, experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { download, downloadHover, resume } from "../assets";
 import { textVariant } from "../utils/motion";
 import { ga4 } from "../main";
 
-const ExperienceCard = ({ experience }) => (
+const ExperienceCard = ({ experience }: { experience: IExperience }) => (
   <VerticalTimelineElement
     contentStyle={{
       background: "#eaeaec",
@@ -22,13 +23,8 @@ const ExperienceCard = ({ experience }) => (
     contentArrowStyle={{
       borderRight: "7px solid  #232631",
     }}
-    date={
-      <div>
-        <h3 className="text-dim text-[18px] font-bold font-beckman">
-          {experience.date}
-        </h3>
-      </div>
-    }
+    date={experience.date}
+    dateClassName="text-dim text-[18px] font-bold font-beckman"
     iconStyle={{ background: experience.iconBg }}
     icon={
       <div className="flex justify-center items-center w-full h-full">
@@ -57,7 +53,7 @@ const ExperienceCard = ({ experience }) => (
 const Experience = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
+      <motion.div variants={textVariant(0)}>
         <p className={`${styles.sectionSubText} sm:pl-16 pl-[2rem]`}>
           What I&apos;ve done so far
         </p>
@@ -113,12 +109,12 @@ const Experience = () => {
               onMouseOver={() => {
                 document
                   .querySelector(".download-btn")
-                  .setAttribute("src", downloadHover);
+                  ?.setAttribute("src", downloadHover);
               }}
               onMouseOut={() => {
                 document
                   .querySelector(".download-btn")
-                  .setAttribute("src", download);
+                  ?.setAttribute("src", download);
               }}
             >
               MY RESUME

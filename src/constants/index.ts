@@ -18,7 +18,45 @@ import {
   menherachan,
 } from '../assets';
 
-export const navLinks = [
+export type INavLink = {
+  id: string;
+  title: string;
+};
+
+export type IService = {
+  title: string;
+  icon: string; // Ajusta el tipo si 'ux', 'frontend', 'backend', y 'prototyping' no son de tipo 'string'.
+};
+
+export type ITechnology = {
+  name: string;
+  icon: string; // Ajusta el tipo si 'html', 'css', 'javascript', etc., no son de tipo 'string'.
+};
+
+export type IExperience = {
+  title: string;
+  company_name: string;
+  icon: string; // Ajusta el tipo si 'coverhunt' no es de tipo 'string'.
+  iconBg: string;
+  date: string;
+};
+
+export type ITag = {
+  name: string;
+  color: string;
+};
+
+export type IProject = {
+  id: string;
+  name: string;
+  description: string;
+  tags: ITag[];
+  image: string; // Ajusta el tipo si 'booksearch', 'localendpoint', 'menherachan' no son de tipo 'string'.
+  repo: string;
+  demo: string;
+};
+
+export const navLinks: INavLink[] = [
   {
     id: 'about',
     title: 'About',
@@ -33,7 +71,7 @@ export const navLinks = [
   },
 ];
 
-const services = [
+const services:IService[] = [
   {
     title: 'Backend Developer',
     icon: ux,
@@ -52,7 +90,7 @@ const services = [
   },
 ];
 
-const technologies = [
+const technologies: ITechnology[] = [
   {
     name: 'HTML 5',
     icon: html,
@@ -91,7 +129,7 @@ const technologies = [
   },
 ];
 
-const experiences = [
+const experiences: IExperience[] = [
   {
     title: 'Freelancer Web Developer',
     company_name: 'Freelance',
@@ -122,7 +160,7 @@ const experiences = [
   },
 ];
 
-const projects = [
+const projects: IProject[] = [
   {
     id: 'project-1',
     name: 'Book Search',
