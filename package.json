@@ -10,7 +10,7 @@
     "lint": "eslint ./src/** --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build -t"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
