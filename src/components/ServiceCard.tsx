@@ -12,7 +12,7 @@ export const ServiceCard = ({ index, title, icon }: IServiceCardProps) => {
   return (
     <motion.div
       variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
-      className="xs:w-[250px] w-full card-gradient p-[1px] rounded-[20px] shadow-card"
+      className="xs:w-[250px] w-full card-gradient p-[1px] rounded-[20px] shadow-card mx-auto"
     >
       <div
         className="bg-jetLight rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"

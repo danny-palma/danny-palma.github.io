@@ -5,6 +5,9 @@ import worldmap from './backgrounds/world-map.png';
 
 import logo from './logo/logo-black.png';
 import logotext from './logo/logo-text-black.png';
+import dannylogo from './logo/danny-logo-black.png';
+import dannylogotext from './logo/danny-logotipo-black.png';
+
 
 import shaq from './personal/shaq.png';
 
@@ -92,4 +95,6 @@ export {
   dcc,
   kelhel,
   microverse,
+  dannylogo,
+  dannylogotext
 };

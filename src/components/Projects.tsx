@@ -46,12 +46,12 @@ const ProjectCard = ({
       />
 
       {active !== id ? (
-        <div className="flex items-center justify-start pr-[4.5rem]">
+        <div className="flex items-center justify-items-center w-full">
           <h3
-            className="font-extrabold font-beckman uppercase w-[200px] h-[30px] 
-        whitespace-nowrap sm:text-[27px] text-[18px] text-timberWolf tracking-[1px]
-        absolute lg:bottom-[7rem] lg:rotate-[-90deg] lg:origin-[0,0]
-        leading-none z-20"
+            className="font-extrabold font-beckman uppercase w-full
+            sm:text-[27px] text-[18px] text-timberWolf 
+            lg:rotate-[-90deg] lg:origin-[0,0]
+            leading-none z-20 text-warp text-center"
           >
             {name}
           </h3>
@@ -78,7 +78,7 @@ const ProjectCard = ({
             </div>
 
             <h2
-              className="font-bold sm:text-[32px] text-[24px] 
+              className="font-bold sm:text-[32px] text-[24px] text-wrap
               text-timberWolf uppercase font-beckman sm:mt-0 -mt-[1rem]"
             >
               {name}
@@ -142,7 +142,7 @@ const Projects = () => {
   const [active, setActive] = useState("project-2");
 
   return (
-    <div className="-mt-[6rem]">
+    <div>
       <motion.div variants={textVariant(0)}>
         <p className={`${styles.sectionSubText} `}>Case Studies</p>
         <h2 className={`${styles.sectionHeadTextLight}`}>Projects.</h2>
@@ -165,7 +165,7 @@ const Projects = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0.25 }}
-        className={`${styles.innerWidth} mx-auto flex flex-col`}
+        className="2xl:max-w-[1280px] w-full mx-auto flex flex-col"
       >
         <div className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5">
           {projects.map((project, index) => (

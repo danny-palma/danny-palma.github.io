@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { styles } from "../styles";
 
 const SectionWrapper = (
   Component: () => JSX.Element,
@@ -11,13 +10,11 @@ const SectionWrapper = (
       <motion.section
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.25 }}
-        className={`${styles.padding} max-w-7xl mx-auto relative z-0`}
+        className="sm:px-16 px-6 py-20
+        max-w-7xl mx-auto relative min-h-screen flex 
+        flex-col justify-center z-0"
+        id={idName}
       >
-        <span className="hash-span" id={idName}>
-          &nbsp;
-        </span>
-
         <Component />
       </motion.section>
     );

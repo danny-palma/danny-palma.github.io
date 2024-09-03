@@ -23,8 +23,11 @@ export const Contact = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!form.name || !form.email || !form.message) {
+      alert("Please fill all form fields");
+      return;
+    }
     setLoading(true);
-
     // sign up on emailjs.com (select the gmail service and connect your account).
     //click on create a new template then click on save.
     emailjs
@@ -61,7 +64,7 @@ export const Contact = () => {
 
   return (
     <div
-      className="-mt-[8rem] xl:flex-row flex-col-reverse 
+      className="xl:flex-row flex-col-reverse 
       flex gap-10 overflow-hidden"
     >
       <motion.div
@@ -75,6 +78,7 @@ export const Contact = () => {
           ref={formRef}
           onSubmit={handleSubmit}
           className="mt-10 flex flex-col gap-6 font-poppins"
+          id="contact-form"
         >
           <label className="flex flex-col">
             <span className="text-timberWolf font-medium mb-4">Your Name</span>
@@ -84,6 +88,7 @@ export const Contact = () => {
               value={form.name}
               onChange={handleChange}
               placeholder="What's your name?"
+              autoComplete="name"
               className="bg-eerieBlack py-4 px-6
               placeholder:text-taupe
               text-timberWolf rounded-lg outline-none
@@ -95,6 +100,7 @@ export const Contact = () => {
             <input
               type="email"
               name="email"
+              autoComplete="email"
               value={form.email}
               onChange={handleChange}
               placeholder="What's your email?"
@@ -111,6 +117,7 @@ export const Contact = () => {
             <textarea
               rows={7}
               name="message"
+              autoComplete="off"
               value={form.message}
               onChange={handleChange}
               placeholder="What's your message?"
