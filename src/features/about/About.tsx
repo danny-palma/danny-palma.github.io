@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { styles } from "../styles";
-import { services } from "../constants";
-import { textVariant } from "../utils/motion";
-import { SectionWrapper } from "../hoc";
+import { styles } from "../../styles";
+import { services } from "../../constants";
+import { textVariant } from "../../utils/motion";
+import { SectionWrapper } from "../../hoc";
 import { ServiceCard } from "./ServiceCard";
 import { FaJava } from "react-icons/fa";
 

@@ -1,35 +1,36 @@
 import { BrowserRouter } from "react-router-dom";
-import {
-  About,
-  Contact,
-  Experience,
-  Hero,
-  Navbar,
-  Tech,
-  Projects,
-} from "./components";
+import About from "./features/about/About";
+import Contact from "./features/contact/Contact";
+import Experience from "./features/experience/Experience";
+import Hero from "./features/hero/Hero";
+import Navbar from "./layout/Navbar";
+import Tech from "./features/tech/Tech";
+import Projects from "./features/projects/Projects";
 import React from "react";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <div className="relative z-0">
-        <div>
+      <main className="relative z-0">
+        <section aria-label="Hero Section">
           <Hero />
-        </div>
+        </section>
 
-        <div className="bg-about bg-cover bg-center bg-no-repeat">
+        <section aria-label="About Section" className="bg-about bg-cover bg-center bg-no-repeat">
           <About />
-        </div>
+        </section>
 
-        <div className="bg-tech bg-cover bg-center bg-no-repeat pb-10">
+        <section aria-label="Technologies" className="bg-tech bg-cover bg-center bg-no-repeat pb-10">
           <Tech />
-        </div>
+        </section>
 
-        <Projects />
+        <section aria-label="Projects">
+          <Projects />
+        </section>
 
-        <div
+        <section
+          aria-label="Experience"
           className="bg-experience bg-cover bg-center bg-no-repeat 
             rounded-tl-[150px] rounded-br-[150px]"
         >
@@ -39,11 +40,12 @@ const App = () => {
           >
             <Experience />
           </div>
-        </div>
-        <div className="relative z-0">
+        </section>
+
+        <section aria-label="Contact Section" className="relative z-0">
           <Contact />
-        </div>
-      </div>
+        </section>
+      </main>
     </BrowserRouter>
   );
 };

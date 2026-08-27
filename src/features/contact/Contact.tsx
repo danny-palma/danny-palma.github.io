@@ -1,10 +1,10 @@
 import React, { useState, useRef, FormEvent, ChangeEvent } from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
-import { styles } from "../styles";
-import { SectionWrapper } from "../hoc";
-import { slideIn } from "../utils/motion";
-import { send, sendHover } from "../assets";
+import { sendEmail } from "../../services/emailService";
+import { styles } from "../../styles";
+import { SectionWrapper } from "../../hoc";
+import { slideIn } from "../../utils/motion";
+import { send, sendHover } from "../../assets";
 
 export const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -28,38 +28,21 @@ export const Contact = () => {
       return;
     }
     setLoading(true);
-    // sign up on emailjs.com (select the gmail service and connect your account).
-    //click on create a new template then click on save.
-    emailjs
-      .send(
-        "service_izrnvxq", // paste your ServiceID here (you'll get one when your service is created).
-        "template_97w3ixr", // paste your TemplateID here (you'll find it under email templates).
-        {
-          from_name: form.name,
-          to_name: "Daniel Palma", // put your name here.
-          from_email: form.email,
-          to_email: "dannypalmadev@gmail.com", //put your email here.
-          message: form.message,
-        },
-        "Tb6HjCSh_6ES_LNk-" //paste your Public Key here. You'll get it in your profile section.
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
-
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.log(error);
-          alert("Something went wrong. Please try again.");
-        }
-      );
+    sendEmail(form)
+      .then(() => {
+        setLoading(false);
+        alert("Thank you. I will get back to you as soon as possible.");
+        setForm({
+          name: "",
+          email: "",
+          message: "",
+        });
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.error(error);
+        alert("Something went wrong. Please try again.");
+      });
   };
 
   return (
