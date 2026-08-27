@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { shaq, worldmap } from "../assets";
+import { shaq, worldmap } from "../../assets";
 
 const Hero = () => {
   return (
