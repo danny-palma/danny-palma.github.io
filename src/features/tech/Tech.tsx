@@ -2,13 +2,13 @@ import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload } from "@react-three/drei";
 import { Physics, Triplet, usePlane } from "@react-three/cannon";
-import { BallCanvas } from "./canvas/index";
-import { SectionWrapper } from "../hoc";
-import { technologies } from "../constants";
-import { styles } from "../styles";
+import { BallCanvas } from "../../components/ui/canvas/index";
+import { SectionWrapper } from "../../hoc";
+import { technologies } from "../../constants";
+import { styles } from "../../styles";
 import { motion } from "framer-motion";
-import { textVariant } from "../utils/motion";
-import Loader from "./Loader";
+import { textVariant } from "../../utils/motion";
+import Loader from "../../components/ui/Loader";
 
 const Plane = (props: {rotation: Triplet, position: Triplet}) => {
   usePlane(() => ({ ...props }));

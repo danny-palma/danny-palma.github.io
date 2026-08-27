@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { SectionWrapper } from "../hoc";
-import { styles } from "../styles";
-import { github, pineapple, pineappleHover } from "../assets";
-import { IProject, projects } from "../constants";
-import { fadeIn, textVariant } from "../utils/motion";
-import { ga4 } from "../main";
+import { SectionWrapper } from "../../hoc";
+import { styles } from "../../styles";
+import { github, pineapple, pineappleHover } from "../../assets";
+import { IProject, projects } from "../../constants";
+import { fadeIn, textVariant } from "../../utils/motion";
+import { ga4 } from "../../main";
 
 type PorjectCardProps = IProject & {
   key: string;
