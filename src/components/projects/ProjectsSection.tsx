@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, Suspense, lazy } from "react";
 import { ProjectItem } from "../../types/portfolio";
 import { SectionHeader } from "../common/SectionHeader";
 import { ProjectCard } from "./ProjectCard";
-import { ProjectModal } from "./ProjectModal";
+
+const ProjectModal = lazy(() => import("./ProjectModal"));
 
 interface ProjectsSectionProps {
   projects: ProjectItem[];
@@ -33,10 +34,14 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
         ))}
       </ul>
 
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
+      {selectedProject && (
+        <Suspense fallback={null}>
+          <ProjectModal
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
+        </Suspense>
+      )}
     </section>
   );
 };

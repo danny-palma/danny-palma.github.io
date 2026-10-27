@@ -9,7 +9,9 @@ export const RailNav: React.FC<RailNavProps> = ({ items }) => {
   const [activeSection, setActiveSection] = useState<string>("inicio");
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+
+    const updateActiveSection = () => {
       const scrollPosition = window.scrollY + 200;
       for (let i = items.length - 1; i >= 0; i--) {
         const item = items[i];
@@ -18,15 +20,24 @@ export const RailNav: React.FC<RailNavProps> = ({ items }) => {
           const top = section.offsetTop;
           if (scrollPosition >= top) {
             setActiveSection(item.id);
+            ticking = false;
             return;
           }
         }
       }
       setActiveSection("inicio");
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateActiveSection);
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    updateActiveSection();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);

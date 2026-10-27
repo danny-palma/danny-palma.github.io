@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, Suspense, lazy } from "react";
 import { PortfolioData } from "../../types/portfolio";
-import { ContactModal } from "./ContactModal";
+
+const ContactModal = lazy(() => import("./ContactModal"));
 
 interface ContactSectionProps {
   contact: PortfolioData["contact"];
@@ -65,11 +66,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ contact }) => {
         </div>
       </div>
 
-      <ContactModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        defaultEmail={contact.email}
-      />
+      {isModalOpen && (
+        <Suspense fallback={null}>
+          <ContactModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            defaultEmail={contact.email}
+          />
+        </Suspense>
+      )}
     </section>
   );
 };

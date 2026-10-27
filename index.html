@@ -2,25 +2,34 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#15201a" />
     <meta
       name="description"
-      content="Daniel Palma — Tech Lead & Consultor. Liderazgo técnico, IA local aplicada y automatización de sistemas."
+      content="Daniel Palma — Tech Lead & Consultor. Liderazgo técnico, IA local aplicada (Ollama, MiniCPM-V) y automatización de sistemas para clientes en EE. UU."
     />
     <meta
       name="keywords"
-      content="Daniel Palma, Tech Lead, Arquitectura de Software, IA Local, Ollama, n8n, GCP, React, TypeScript, Node.js"
+      content="Daniel Palma, Tech Lead, Software Architect, IA Local, Ollama, n8n, GCP, React, TypeScript, Node.js"
     />
+    <link rel="canonical" href="https://dannypalma.com/" />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts Non-blocking Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Caveat:wght@600&family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Caveat:wght@600&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Caveat:wght@600&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      />
+    </noscript>
 
     <!-- Open Graph Tags for Social Media -->
     <meta property="og:title" content="Daniel Palma — Portfolio" />
@@ -29,8 +38,8 @@
       content="Tech Lead · Liderazgo técnico, IA local y automatización de sistemas desde Bogotá para clientes en EE. UU."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://danny-palma.github.io/" />
-    <meta property="og:image" content="https://danny-palma.github.io/logo.png" />
+    <meta property="og:url" content="https://dannypalma.com/" />
+    <meta property="og:image" content="https://dannypalma.com/logo.png" />
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -39,7 +48,55 @@
       name="twitter:description"
       content="Tech Lead · Liderazgo técnico, IA local y automatización de sistemas."
     />
-    <meta name="twitter:image" content="https://danny-palma.github.io/logo.png" />
+    <meta name="twitter:image" content="https://dannypalma.com/logo.png" />
+
+    <!-- Structured Data (JSON-LD) for SEO Rich Snippets -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://dannypalma.com/#person",
+            "name": "Daniel Palma",
+            "givenName": "Daniel",
+            "familyName": "Palma",
+            "jobTitle": "Tech Lead & Software Architect",
+            "url": "https://dannypalma.com",
+            "image": "https://dannypalma.com/logo.png",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Bogotá",
+              "addressCountry": "CO"
+            },
+            "sameAs": [
+              "https://github.com/danny-palma",
+              "https://www.linkedin.com/in/daniel-palma-dev/"
+            ],
+            "knowsAbout": [
+              "Software Architecture",
+              "Technical Leadership",
+              "Local AI (Ollama, MiniCPM-V)",
+              "Workflow Automation (n8n, GCP)",
+              "TypeScript",
+              "React",
+              "Node.js"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://dannypalma.com/#website",
+            "url": "https://dannypalma.com",
+            "name": "Daniel Palma — Portfolio",
+            "description": "Portafolio profesional de Daniel Palma — Tech Lead & Consultor",
+            "publisher": {
+              "@id": "https://dannypalma.com/#person"
+            },
+            "inLanguage": "es"
+          }
+        ]
+      }
+    </script>
 
     <title>Daniel Palma — Portfolio</title>
   </head>

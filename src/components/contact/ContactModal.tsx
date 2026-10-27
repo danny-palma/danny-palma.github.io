@@ -1,4 +1,4 @@
-import React, { useState, useEffect, FormEvent, ChangeEvent } from "react";
+import React, { useState, useEffect, useRef, FormEvent, ChangeEvent } from "react";
 import { sendEmail } from "../../services/emailService";
 
 interface ContactModalProps {
@@ -20,15 +20,44 @@ export const ContactModal: React.FC<ContactModalProps> = ({
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!isOpen) return;
+
+    const modalEl = modalRef.current;
+    const focusableElements = modalEl?.querySelectorAll<HTMLElement>(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const firstElement = focusableElements?.[0];
+    const lastElement = focusableElements?.[focusableElements.length - 1];
+
+    // Focus first element on open
+    firstElement?.focus();
+
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        onClose();
+        return;
+      }
+      if (e.key === "Tab") {
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            lastElement?.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            firstElement?.focus();
+            e.preventDefault();
+          }
+        }
+      }
     };
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-      window.addEventListener("keydown", handleKeyDown);
-    }
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
     return () => {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
@@ -85,6 +114,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
       onClick={onClose}
     >
       <div
+        ref={modalRef}
         className="card forest"
         style={{
           maxWidth: "560px",
@@ -111,6 +141,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
             Mensaje Directo
           </span>
           <button
+            type="button"
             onClick={onClose}
             aria-label="Cerrar modal"
             style={{
@@ -162,6 +193,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               Gracias por escribirme. Te responderé a la brevedad.
             </p>
             <button
+              type="button"
               onClick={onClose}
               className="btn pri"
               style={{ marginTop: "var(--s4)" }}
@@ -305,3 +337,5 @@ export const ContactModal: React.FC<ContactModalProps> = ({
     </div>
   );
 };
+
+export default ContactModal;

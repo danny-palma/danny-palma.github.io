@@ -6,7 +6,6 @@ import "./index.css";
 
 if (!import.meta.env.DEV) {
   ga4.initialize("G-XV28YL4FJL");
-  console.log("Ga4 started!");
 }
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

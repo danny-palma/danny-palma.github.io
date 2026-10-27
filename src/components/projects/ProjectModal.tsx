@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { ProjectItem } from "../../types/portfolio";
 import { Chip } from "../common/Chip";
 
@@ -11,14 +11,44 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   project,
   onClose,
 }) => {
+  const modalRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
+    if (!project) return;
+
+    const modalEl = modalRef.current;
+    const focusableElements = modalEl?.querySelectorAll<HTMLElement>(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const firstElement = focusableElements?.[0];
+    const lastElement = focusableElements?.[focusableElements.length - 1];
+
+    // Focus first element on open
+    firstElement?.focus();
+
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        onClose();
+        return;
+      }
+      if (e.key === "Tab") {
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            lastElement?.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            firstElement?.focus();
+            e.preventDefault();
+          }
+        }
+      }
     };
-    if (project) {
-      document.body.style.overflow = "hidden";
-      window.addEventListener("keydown", handleKeyDown);
-    }
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
     return () => {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
@@ -46,6 +76,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
       onClick={onClose}
     >
       <div
+        ref={modalRef}
         className="card forest"
         style={{
           maxWidth: "680px",
@@ -78,6 +109,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             />
           </div>
           <button
+            type="button"
             onClick={onClose}
             aria-label="Cerrar modal"
             style={{
@@ -161,7 +193,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               Demo en Vivo ↗
             </a>
           )}
-          <button onClick={onClose} className="btn sec2">
+          <button type="button" onClick={onClose} className="btn sec2">
             Cerrar
           </button>
         </div>
@@ -169,3 +201,5 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
     </div>
   );
 };
+
+export default ProjectModal;

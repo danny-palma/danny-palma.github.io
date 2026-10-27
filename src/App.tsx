@@ -12,10 +12,10 @@ import { ContactSection } from "./components/contact/ContactSection";
 const App: React.FC = () => {
   return (
     <div style={{ position: "relative", width: "100%", minHeight: "100vh", background: "var(--bg)" }}>
-      <SkipLink targetId="#proyectos" />
+      <SkipLink targetId="#main" />
       <RailNav items={portfolioData.navigation} />
 
-      <main id="main">
+      <main id="main" tabIndex={-1} style={{ outline: "none" }}>
         <HeroSection profile={portfolioData.profile} />
         <ProjectsSection projects={portfolioData.projects} />
         <ServicesSection

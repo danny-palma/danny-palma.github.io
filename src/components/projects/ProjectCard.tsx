@@ -13,12 +13,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     <li className={project.className}>
-      <a
+      <button
+        type="button"
         className="card tile plink"
-        href={`#${project.id}`}
-        onClick={(e) => {
-          e.preventDefault();
-          onSelect(project);
+        onClick={() => onSelect(project)}
+        aria-haspopup="dialog"
+        style={{
+          textAlign: "left",
+          width: "100%",
+          cursor: "pointer",
+          font: "inherit",
+          border: "none",
         }}
       >
         <span className="bnum">{project.num}</span>
@@ -46,7 +51,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           </svg>
           <span className="sr">Ver caso</span>
         </span>
-      </a>
+      </button>
     </li>
   );
 };
