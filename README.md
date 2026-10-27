@@ -1,100 +1,102 @@
-# Portfolio Template
+# Daniel Palma — Tech Lead & Portfolio
 
-https://github.com/shaqdeff/Portfolio-Template/assets/92020713/eed76a82-e59d-440b-a04c-a2dc00a508b7
+> Portafolio personal y profesional de **Daniel Palma** — Tech Lead y consultor especializado en arquitectura de sistemas, IA local aplicada (Ollama, MiniCPM-V) y automatización de procesos (GCP, n8n) para clientes en EE. UU. y Latinoamérica.
 
-![portfolio-phone](https://github.com/shaqdeff/Portfolio-Template/assets/92020713/e41ed31c-50e5-40d3-a74f-9c0eb053fe7f)
-![portfolio-phone-3](https://github.com/shaqdeff/Portfolio-Template/assets/92020713/e8c23aa7-ac27-48fc-bf66-50ab00e3a64f)
+🌐 **Sitio Web Oficial:** [https://dannypalma.com](https://dannypalma.com)  
+🔗 **GitHub Pages:** [https://danny-palma.github.io/](https://danny-palma.github.io/)
 
-I created this portfolio to use as my own but ended up doing something else entirely. However, instead of keeping it buried, I decided to put it up here on GitHub as an open-source resource to help individuals to learn, adapt, and create their own portfolios. Feel free to customize and modify the theme and components to suit your personal style and branding preferences.
+---
 
-## License and Attribution
+## 🛠️ Tecnologías y Stack
 
-The code in this repository is released under the [MIT](https://github.com/shaqdeff/Portfolio-Template/blob/90213d4887074d1d29434f706afad3d12fa33f5f/MIT.md) License, which grants you the freedom to use, modify, and distribute the template as your own. However, if you choose to use the site's design largely unmodified, kindly credit me as the original designer of the site.
+- **Frontend:** React 18, TypeScript, Vite
+- **Estilos y Diseño:** Tailwind CSS, Tokens CSS nativos (paleta bosque, crema y cobre), Google Fonts (*Bricolage Grotesque*, *JetBrains Mono*, *Caveat*)
+- **Animaciones:** Animaciones y transiciones CSS nativas de alto rendimiento (sin dependencias pesadas de runtime)
+- **Servicios:** `@emailjs/browser` (contacto directo funcional), `react-ga4` (analítica web)
+- **Despliegue:** `gh-pages` con soporte para dominio personalizado (`dannypalma.com`)
 
-All projects and experiences included in this portfolio are the result of my own efforts and creativity. Please refrain from presenting them as your own.
+---
 
-## Built With
+## 📂 Estructura del Proyecto
 
-- React.js
-- Three.js
-- Framer Motion
-- TailwindCSS
+El código está estructurado bajo una arquitectura de componentes modulares, desacoplados y reutilizables:
 
-## Live Demo
-
-- Click [here](https://shaq-portfolio.netlify.app/) to view the live demo.
-
-## Getting Started
-
-To get started with this portfolio template, follow these simple steps:
-
-### Prerequisites
-
-Make sure you have node `16.0.0` or higher and npm `9.0.0` or higher installed.
-
-### Setup
-
-- With git, clone the code to your machine, or download a ZIP of all the files directly.
-- [Download the ZIP file from this location](https://github.com/shaqdeff/Portfolio-Template/archive/refs/heads/main.zip) or run the following [git](https://git-scm.com/) command to clone the files to your machine:
-
-```
-git clone https://github.com/shaqdeff/Portfolio-Template.git
-```
-
-- Once the files are on your machine, open the **Portfolio-Template** folder in [Visual Studio Code](https://code.visualstudio.com/download).
-
-```
-cd Portfolio-Template && code .
+```text
+src/
+├── components/          # Componentes reutilizables por dominio
+│   ├── common/          # Chip, SectionHeader, etc.
+│   ├── navigation/      # RailNav flotante con scroll-spy, SkipLink
+│   ├── hero/            # HeroCard, HeroBento, TerminalCard, LocationCard, StackCard, PipelineCard
+│   ├── projects/        # ProjectsSection, ProjectCard, ProjectModal interactivo
+│   ├── services/        # ServicesSection, ServiceCard, ConvictionsCard
+│   ├── stack/           # StackSection, StackCard
+│   ├── trajectory/      # TrajectorySection con línea de tiempo
+│   └── contact/         # ContactSection (CTA cobre), ContactModal con EmailJS
+├── data/
+│   └── portfolio.ts     # Fuente de verdad centralizada con toda la información y textos
+├── services/
+│   └── emailService.ts  # Integración y envío de correos vía EmailJS
+├── types/
+│   └── portfolio.ts     # Tipado estricto con interfaces de TypeScript
+├── App.tsx              # Componente raíz ensamblador
+├── main.tsx             # Punto de entrada de React
+└── index.css            # Tokens de diseño, estilos base y animaciones CSS
 ```
 
-## Install
+---
 
-- After opening the files in Visual Studio Code, open the **VS Code** integrated terminal and run the following commands:
+## 🚀 Instalación y Desarrollo Local
 
-```
-npm install
-```
+### Prerrequisitos
+- Node.js `18.x` o superior
+- npm `9.x` o superior
 
-This will install all the packages and dependencies used in the project.
+### Pasos
 
-## Usage
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/danny-palma/danny-palma.github.io.git
+   cd danny-palma.github.io
+   ```
 
-- Run the following command to start a local server:
+2. **Instalar dependencias:**
+   ```bash
+   npm install
+   ```
 
-```
-npm run dev
-```
+3. **Iniciar el servidor de desarrollo:**
+   ```bash
+   npm run dev
+   ```
+   Abre [http://localhost:5173/](http://localhost:5173/) en tu navegador.
 
-This will open up the project on a browser on `http://localhost:5173/`
+4. **Ejecutar el linter de código:**
+   ```bash
+   npm run lint
+   ```
 
-## Build
+5. **Construir para producción:**
+   ```bash
+   npm run build
+   ```
 
-- To create a production build:
+6. **Desplegar a GitHub Pages:**
+   ```bash
+   npm run deploy
+   ```
 
-```
-npm run build
-```
+---
 
-- To preview the site as it will appear once deployed:
+## 👤 Autor
 
-```
-npm run preview
-```
+**Daniel Palma**
+- **Web:** [https://dannypalma.com](https://dannypalma.com)
+- **GitHub:** [@danny-palma](https://github.com/danny-palma)
+- **LinkedIn:** [daniel-palma-dev](https://www.linkedin.com/in/daniel-palma-dev/)
+- **Email:** [dannypalmadev@gmail.com](mailto:dannypalmadev@gmail.com)
 
-## Authors
+---
 
-👤 **Shaquille Ndunda**
+## 📄 Licencia
 
-- GitHub: [@shaqdeff](https://github.com/shaqdeff)
-- Twitter: [@shaquillendunda](https://twitter.com/shaquillendunda)
-- LinkedIn: [Shaquille Ndunda](https://www.linkedin.com/in/shaquille-ndunda-b13a95107/)
-
-## Feedback and Contributions
-
-If you have any feedback, suggestions, or would like to contribute to this project, your involvement is highly valued. Feel free to open an [issue](../../issues/) or submit a pull request with your ideas and enhancements. Remember, this template is a starting point, and the true magic lies in making it your own. Enjoy the journey of creating a stunning portfolio that represents your unique talents and accomplishments!
-
-Happy coding and showcasing!
-
-## Show your support
-
-Give a ⭐️ if you like this project!
+Este proyecto está bajo la Licencia MIT. Consulta el archivo [MIT.md](MIT.md) para más detalles.

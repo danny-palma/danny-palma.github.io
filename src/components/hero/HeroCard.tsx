@@ -1,14 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { PortfolioData } from "../../types/portfolio";
-import { shaq } from "../../assets";
 
 interface HeroCardProps {
   profile: PortfolioData["profile"];
 }
 
 export const HeroCard: React.FC<HeroCardProps> = ({ profile }) => {
-  const [photoError, setPhotoError] = useState(false);
-
   return (
     <article className="card hcard rise" style={{ "--d": "0ms" } as React.CSSProperties}>
       {/* Decorative Star 1 */}
@@ -100,23 +97,12 @@ export const HeroCard: React.FC<HeroCardProps> = ({ profile }) => {
         {/* Photo / Monogram badge */}
         <div className="hphoto rise" style={{ "--d": "300ms" } as React.CSSProperties}>
           <div className="ph2">
-            {!photoError && shaq ? (
-              <img
-                src={shaq}
-                alt={profile.name}
-                onError={() => setPhotoError(true)}
-                className="w-full h-full object-cover rounded-[32px] opacity-90 transition-opacity hover:opacity-100"
-              />
-            ) : (
-              <>
-                <div className="ring">
-                  <span>{profile.initials}</span>
-                </div>
-                <span className="mono" style={{ fontSize: "12px", opacity: 0.8 }}>
-                  [TU FOTO AQUÍ]
-                </span>
-              </>
-            )}
+            <div className="ring">
+              <span>{profile.initials}</span>
+            </div>
+            <span className="mono" style={{ fontSize: "12px", opacity: 0.8 }}>
+              [TU FOTO AQUÍ]
+            </span>
           </div>
 
           <div className="badge">
