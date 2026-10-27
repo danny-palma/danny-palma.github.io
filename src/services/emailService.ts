@@ -12,7 +12,9 @@ export const sendEmail = async (form: { name: string; email: string; message: st
         to_email: "dannypalmadev@gmail.com",
         message: form.message,
       },
-      "Tb6HjCSh_6ES_LNk-" // Public Key
+      {
+        publicKey: "Tb6HjCSh_6ES_LNk-", // Public Key
+      }
     );
     return result;
   } catch (error) {

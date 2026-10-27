@@ -10,22 +10,13 @@ export default [
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   {
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
     rules: {
-      "react/no-unknown-property": [
-        "error",
-        {
-          ignore: [
-            "intensity",
-            "position",
-            "castShadow",
-            "receiveShadow",
-            "args",
-            "polygonOffset",
-            "polygonOffsetFactor",
-            "flatShading",
-          ],
-        },
-      ],
+      "react/react-in-jsx-scope": "off",
     },
   },
 ];
