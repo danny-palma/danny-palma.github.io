@@ -1,52 +1,32 @@
-import { BrowserRouter } from "react-router-dom";
-import About from "./features/about/About";
-import Contact from "./features/contact/Contact";
-import Experience from "./features/experience/Experience";
-import Hero from "./features/hero/Hero";
-import Navbar from "./layout/Navbar";
-import Tech from "./features/tech/Tech";
-import Projects from "./features/projects/Projects";
 import React from "react";
+import { portfolioData } from "./data/portfolio";
+import { SkipLink } from "./components/navigation/SkipLink";
+import { RailNav } from "./components/navigation/RailNav";
+import { HeroSection } from "./components/hero/HeroSection";
+import { ProjectsSection } from "./components/projects/ProjectsSection";
+import { ServicesSection } from "./components/services/ServicesSection";
+import { StackSection } from "./components/stack/StackSection";
+import { TrajectorySection } from "./components/trajectory/TrajectorySection";
+import { ContactSection } from "./components/contact/ContactSection";
 
-const App = () => {
+const App: React.FC = () => {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <main className="relative z-0">
-        <section aria-label="Hero Section">
-          <Hero />
-        </section>
+    <div style={{ position: "relative", width: "100%", minHeight: "100vh", background: "var(--bg)" }}>
+      <SkipLink targetId="#proyectos" />
+      <RailNav items={portfolioData.navigation} />
 
-        <section aria-label="About Section" className="bg-about bg-cover bg-center bg-no-repeat">
-          <About />
-        </section>
-
-        <section aria-label="Technologies" className="bg-tech bg-cover bg-center bg-no-repeat pb-10">
-          <Tech />
-        </section>
-
-        <section aria-label="Projects">
-          <Projects />
-        </section>
-
-        <section
-          aria-label="Experience"
-          className="bg-experience bg-cover bg-center bg-no-repeat 
-            rounded-tl-[150px] rounded-br-[150px]"
-        >
-          <div
-            className="bg-experienceLight bg-cover bg-center 
-            bg-no-repeat rounded-tl-[150px] rounded-br-[130px]"
-          >
-            <Experience />
-          </div>
-        </section>
-
-        <section aria-label="Contact Section" className="relative z-0">
-          <Contact />
-        </section>
+      <main id="main">
+        <HeroSection profile={portfolioData.profile} />
+        <ProjectsSection projects={portfolioData.projects} />
+        <ServicesSection
+          services={portfolioData.services}
+          convictions={portfolioData.convictions}
+        />
+        <StackSection stack={portfolioData.stack} />
+        <TrajectorySection trajectory={portfolioData.trajectory} />
+        <ContactSection contact={portfolioData.contact} />
       </main>
-    </BrowserRouter>
+    </div>
   );
 };
 
