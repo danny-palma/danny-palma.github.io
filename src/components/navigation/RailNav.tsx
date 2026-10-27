@@ -9,38 +9,30 @@ export const RailNav: React.FC<RailNavProps> = ({ items }) => {
   const [activeSection, setActiveSection] = useState<string>("inicio");
 
   useEffect(() => {
-    let ticking = false;
-
-    const updateActiveSection = () => {
-      const scrollPosition = window.scrollY + 200;
-      for (let i = items.length - 1; i >= 0; i--) {
-        const item = items[i];
-        const section = document.getElementById(item.id);
-        if (section) {
-          const top = section.offsetTop;
-          if (scrollPosition >= top) {
-            setActiveSection(item.id);
-            ticking = false;
-            return;
+    // Use IntersectionObserver to eliminate forced reflow / layout thrashing
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
           }
-        }
+        });
+      },
+      {
+        rootMargin: "-25% 0px -65% 0px",
+        threshold: 0,
       }
-      setActiveSection("inicio");
-      ticking = false;
-    };
+    );
 
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateActiveSection);
-        ticking = true;
+    items.forEach((item) => {
+      const element = document.getElementById(item.id);
+      if (element) {
+        observer.observe(element);
       }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    updateActiveSection();
+    });
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
     };
   }, [items]);
 
