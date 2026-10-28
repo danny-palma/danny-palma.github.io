@@ -17,6 +17,7 @@ const App: React.FC = () => {
 
       <main id="main" tabIndex={-1} style={{ outline: "none" }}>
         <HeroSection profile={portfolioData.profile} />
+        <div className="themewrap">
         <ProjectsSection projects={portfolioData.projects} />
         <ServicesSection
           services={portfolioData.services}
@@ -25,6 +26,7 @@ const App: React.FC = () => {
         <StackSection stack={portfolioData.stack} />
         <TrajectorySection trajectory={portfolioData.trajectory} />
         <ContactSection contact={portfolioData.contact} />
+        </div>
       </main>
     </div>
   );

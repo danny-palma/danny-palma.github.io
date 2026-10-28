@@ -145,7 +145,7 @@ export const RailNav: React.FC<RailNavProps> = ({ items }) => {
           <a
             key={item.id}
             href={`#${item.id}`}
-            aria-label={item.label}
+            aria-label={item.icon === "inicio" ? `DP - ${item.label}` : item.label}
             className={isActive ? "on" : ""}
             aria-current={isActive ? "true" : undefined}
           >

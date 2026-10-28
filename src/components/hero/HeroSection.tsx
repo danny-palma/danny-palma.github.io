@@ -26,7 +26,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ profile }) => {
         <HeroCard profile={profile} />
         <HeroBento profile={profile} />
 
-        <a className="cue" href="#proyectos" aria-label="Ir a sección de proyectos">
+        <a className="cue" href="#proyectos" aria-label="Explora: ir a la sección de proyectos">
           <span>Explora</span>
           <svg
             width="18"
