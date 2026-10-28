@@ -33,10 +33,17 @@ if (typeof window !== "undefined" && !import.meta.env.DEV) {
   }
 }
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+const container = document.getElementById("root")!;
+const appElement = (
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
+
+if (container.hasChildNodes()) {
+  ReactDOM.hydrateRoot(container, appElement);
+} else {
+  ReactDOM.createRoot(container).render(appElement);
+}
 
 export { ga4 };
