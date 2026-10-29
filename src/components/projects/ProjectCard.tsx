@@ -28,7 +28,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       >
         <span className="bnum">{project.num}</span>
         <span>
-          <Chip label={project.category} />
+          <div style={{ display: "flex", gap: "var(--s2)", alignItems: "center", flexWrap: "wrap" }}>
+            <Chip label={project.category} />
+            {project.keyMetric && (
+              <span className="mono chip-metric">
+                ⚡ {project.keyMetric}
+              </span>
+            )}
+          </div>
           <h3 className="h3">{project.title}</h3>
           <span className="p" style={{ display: "block" }}>
             {project.description}

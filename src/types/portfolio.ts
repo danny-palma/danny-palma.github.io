@@ -4,6 +4,17 @@ export interface NavItem {
   icon: 'inicio' | 'proyectos' | 'servicios' | 'stack' | 'trayectoria' | 'contacto';
 }
 
+export interface ProjectMetric {
+  label: string;
+  value: string;
+}
+
+export interface ProjectCaseStudy {
+  challenge: string;
+  decisions: string;
+  results: string;
+}
+
 export interface ProjectItem {
   id: string;
   num: string;
@@ -11,6 +22,9 @@ export interface ProjectItem {
   title: string;
   description: string;
   longDescription?: string;
+  keyMetric?: string;
+  metrics?: ProjectMetric[];
+  caseStudy?: ProjectCaseStudy;
   className: string;
   tags?: string[];
   repoUrl?: string;

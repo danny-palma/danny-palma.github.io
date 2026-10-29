@@ -94,15 +94,20 @@ export const HeroCard: React.FC<HeroCardProps> = ({ profile }) => {
           </div>
         </div>
 
-        {/* Photo / Monogram badge */}
+        {/* Professional ID / Monogram badge */}
         <div className="hphoto rise" style={{ "--d": "300ms" } as React.CSSProperties}>
           <div className="ph2">
             <div className="ring">
               <span>{profile.initials}</span>
             </div>
-            <span className="mono" style={{ fontSize: "12px", opacity: 0.8 }}>
-              [TU FOTO AQUÍ]
-            </span>
+            <div className="id-badge">
+              <span className="id-name">{profile.name}</span>
+              <span className="id-role mono">TECH LEAD · ARCHITECT</span>
+              <span className="id-status">
+                <span className="dot-live" aria-hidden="true" />
+                <span>Perfil Verificado</span>
+              </span>
+            </div>
           </div>
 
           <div className="badge">

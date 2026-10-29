@@ -149,6 +149,104 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           {project.longDescription || project.description}
         </p>
 
+        {/* Metrics Grid */}
+        {project.metrics && project.metrics.length > 0 && (
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+              gap: "var(--s3)",
+              marginTop: "var(--s6)",
+              marginBottom: "var(--s4)",
+            }}
+          >
+            {project.metrics.map((m) => (
+              <div
+                key={m.label}
+                style={{
+                  background: "var(--surface)",
+                  border: "1px solid var(--border)",
+                  borderRadius: "var(--r-md)",
+                  padding: "var(--s3) var(--s4)",
+                }}
+              >
+                <div
+                  className="mono"
+                  style={{
+                    fontSize: "20px",
+                    fontWeight: 800,
+                    color: "var(--copper)",
+                  }}
+                >
+                  {m.value}
+                </div>
+                <div
+                  className="mono"
+                  style={{
+                    fontSize: "11px",
+                    color: "var(--muted)",
+                    marginTop: "2px",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.04em",
+                  }}
+                >
+                  {m.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Case Study Details */}
+        {project.caseStudy && (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "var(--s4)",
+              marginTop: "var(--s6)",
+              padding: "var(--s4)",
+              background: "rgba(21, 32, 26, 0.7)",
+              borderRadius: "var(--r-md)",
+              border: "1px solid var(--border)",
+            }}
+          >
+            <div>
+              <span
+                className="mono lab"
+                style={{ color: "var(--copper)", display: "block", marginBottom: "4px" }}
+              >
+                {"// 01. Contexto y Reto"}
+              </span>
+              <p className="p" style={{ fontSize: "14px", lineHeight: 1.5, margin: 0 }}>
+                {project.caseStudy.challenge}
+              </p>
+            </div>
+            <div>
+              <span
+                className="mono lab"
+                style={{ color: "var(--copper)", display: "block", marginBottom: "4px" }}
+              >
+                {"// 02. Decisiones de Arquitectura"}
+              </span>
+              <p className="p" style={{ fontSize: "14px", lineHeight: 1.5, margin: 0 }}>
+                {project.caseStudy.decisions}
+              </p>
+            </div>
+            <div>
+              <span
+                className="mono lab"
+                style={{ color: "var(--copper)", display: "block", marginBottom: "4px" }}
+              >
+                {"// 03. Resultados Comprobables"}
+              </span>
+              <p className="p" style={{ fontSize: "14px", lineHeight: 1.5, margin: 0, color: "var(--strong)" }}>
+                {project.caseStudy.results}
+              </p>
+            </div>
+          </div>
+        )}
+
         {project.tags && project.tags.length > 0 && (
           <div style={{ marginTop: "var(--s6)" }}>
             <span

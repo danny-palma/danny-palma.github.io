@@ -603,6 +603,64 @@ h1, .h2, .h3, .big2 {
   background: rgba(234, 165, 115, 0.08);
 }
 
+.id-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  margin-top: var(--s2);
+}
+
+.id-name {
+  font-weight: 800;
+  font-size: 18px;
+  color: #f6f0de;
+  letter-spacing: -0.02em;
+}
+
+.id-role {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--copper);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.id-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text);
+  background: rgba(21, 32, 26, 0.6);
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  border: 1px solid rgba(201, 119, 74, 0.25);
+  margin-top: 4px;
+}
+
+.dot-live {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 6px #4ade80;
+  display: inline-block;
+}
+
+.chip-metric {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(201, 119, 74, 0.12);
+  color: var(--copper);
+  border: 1px solid rgba(201, 119, 74, 0.25);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
 .badge {
   position: absolute;
   left: -36px;
@@ -797,6 +855,19 @@ h1, .h2, .h3, .big2 {
   align-items: center;
   gap: var(--s3);
   flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .pipe {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--s2);
+  }
+  .pipe .arr {
+    text-align: center;
+    transform: rotate(90deg);
+    margin: -2px 0;
+  }
 }
 
 .node {
