@@ -622,7 +622,7 @@ h1, .h2, .h3, .big2 {
 .id-role {
   font-size: 11px;
   letter-spacing: 0.08em;
-  color: var(--copper);
+  color: #eaa573;
   font-weight: 700;
   text-transform: uppercase;
 }
